@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   NEXO CORE — CSS Custom Properties
+   ========================================= */
+:root {
+  /* Primary Brand Colors */
+  --nexo-navy: #0D1B2A;
+  --nexo-teal: #1A6B72;
+  --nexo-teal-light: #2A9A96;
+  --nexo-green: #3AAB5C;
+  --nexo-green-dark: #1F7A3D;
+
+  /* Neutral Palette */
+  --nexo-white: #FFFFFF;
+  --nexo-off-white: #F7F8FA;
+  --nexo-light-gray: #E8ECF0;
+  --nexo-mid-gray: #8C9BAD;
+  --nexo-dark: #0D1B2A;
+
+  /* Semantic Module Colors */
+  --nexo-amber: #D4831A;
+  --nexo-purple: #5B4FBE;
+  --nexo-silver: #9BA8B5;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #0D1B2A 0%, #1A3A4A 50%, #0D3B30 100%);
+  --gradient-teal: linear-gradient(120deg, #1A6B72, #2A9A96);
+  --gradient-core: linear-gradient(135deg, #1A6B72 0%, #3AAB5C 100%);
+}
+
+/* =========================================
+   Global Reset & Base Styles
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: var(--nexo-navy);
+  background-color: var(--nexo-white);
+  line-height: 1.6;
+}
+
+::selection {
+  background-color: rgba(26, 107, 114, 0.25);
+  color: var(--nexo-navy);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--nexo-teal-light);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   Typography Utilities
+   ========================================= */
+@layer components {
+  .text-display-xl {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+  .text-display-lg {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+  }
+  .text-display-md {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+  .text-display-sm {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+  .text-body-xl {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.7;
+  }
+  .text-body-lg {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+  .text-body-md {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .text-body-sm {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .text-label {
+    font-family: 'Space Mono', monospace;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+  .text-tag {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* =========================================
+   Hero Mesh Animation — PREMIUM
+   ========================================= */
+@keyframes meshDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40px, -30px) scale(1.05); }
+  50% { transform: translate(-25px, 40px) scale(0.95); }
+  75% { transform: translate(20px, 15px) scale(1.02); }
+}
+
+@keyframes meshDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-35px, 25px) scale(1.08); }
+  50% { transform: translate(30px, -35px) scale(0.92); }
+  75% { transform: translate(-15px, -20px) scale(1.04); }
+}
+
+@keyframes meshDrift3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  25% { transform: translate(-45%, -55%) scale(1.1); }
+  50% { transform: translate(-55%, -45%) scale(0.9); }
+  75% { transform: translate(-48%, -52%) scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dashDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 12px rgba(26, 107, 114, 0.4)) drop-shadow(0 0 40px rgba(42, 154, 150, 0.2));
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px rgba(26, 107, 114, 0.6)) drop-shadow(0 0 60px rgba(42, 154, 150, 0.3));
+  }
+}
+
+.hero-mesh {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-mesh::before,
+.hero-mesh::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-mesh::before {
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(26,107,114,0.25) 0%, rgba(26,107,114,0.08) 40%, transparent 70%);
+  top: -200px;
+  right: -150px;
+  filter: blur(60px);
+  animation: meshDrift1 15s ease-in-out infinite;
+}
+
+.hero-mesh::after {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(58,171,92,0.2) 0%, rgba(58,171,92,0.06) 40%, transparent 70%);
+  bottom: -150px;
+  left: -100px;
+  filter: blur(60px);
+  animation: meshDrift2 15s ease-in-out infinite;
+}
+
+.hero-mesh-extra {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(42,154,150,0.15) 0%, rgba(42,154,150,0.04) 40%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  border-radius: 50%;
+  animation: meshDrift3 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Extra ambient orb for depth */
+.hero-mesh-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(91,79,190,0.08) 0%, transparent 70%);
+  bottom: 20%;
+  right: 10%;
+  filter: blur(40px);
+  border-radius: 50%;
+  animation: meshDrift1 20s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* Grid overlay — subtle, high-end */
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #2A9A96 0%, #3AAB5C 50%, #2A9A96 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Stat glow effect */
+.stat-glow {
+  text-shadow: 0 0 40px rgba(42, 154, 150, 0.3);
+}
+
+/* Section divider gradient line */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(26, 107, 114, 0.3), transparent);
+}
+
+/* =========================================
+   Responsive Typography
+   ========================================= */
+@media (max-width: 768px) {
+  .text-display-xl {
+    font-size: 44px;
+    letter-spacing: -1px;
+  }
+  .text-display-lg {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .text-display-md {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+  .text-display-sm {
+    font-size: 26px;
+  }
+}
